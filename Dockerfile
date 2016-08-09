@@ -10,4 +10,6 @@ RUN apt install -y socat
 
 RUN curl -sSL https://get.docker.com/ | sh
 
-CMD ["socat -d TCP-LISTEN:2376,range=127.0.0.1/32,reuseaddr,fork UNIX:/var/run/docker.sock"]
+COPY ./entrypoint.sh /entrypoint.sh
+
+CMD ["/entrypoint.sh"]
