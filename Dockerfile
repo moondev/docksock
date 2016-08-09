@@ -10,6 +10,8 @@ RUN apt install -y socat
 
 RUN curl -sSL https://get.docker.com/ | sh
 
-COPY ./entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
+
+RUN chmod +x /entrypoint.sh
 
 CMD ["/entrypoint.sh"]
